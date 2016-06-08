@@ -1,4 +1,27 @@
 class UsersController < ApplicationController
+  
+  before_action :logged_in_user, only: [:edit, :update]
+  
+  def edit
+    @user = User.find(params[:id])
+    if (current_user != @user)
+      redirect_to root_path
+    end
+  end
+  
+  def update
+        @user = User.find(params[:id])
+    if (current_user != @user)
+      redirect_to root_path
+    end
+    if (@user.update(user_profile))
+      flash = "save_suceed"
+      redirect_to :edit
+    end
+  end
+    
+    
+    
   def new
     @user = User.new
   end
