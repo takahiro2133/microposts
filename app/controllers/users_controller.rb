@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
     if (@user.update(user_profile))
-      flash = "save_suceed"
+      flash[:sucess] =  "save_suceed"
       redirect_to :edit
     end
   end
