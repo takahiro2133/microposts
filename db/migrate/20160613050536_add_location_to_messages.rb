@@ -1,5 +1,5 @@
 class AddLocationToMessages < ActiveRecord::Migration
   def change
-    add_column :messages, :location, :string
+    add_column :users, :location, :string
   end
 end
