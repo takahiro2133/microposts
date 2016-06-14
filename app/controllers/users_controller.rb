@@ -10,14 +10,14 @@ class UsersController < ApplicationController
   end
   
   def update
-        @user = User.find(params[:id])
+    @user = User.find(params[:id])
     if (current_user != @user)
       redirect_to root_path
     end
     if (@user.update(user_profile))
       flash[:sucess] =  "save_suceed"
-      redirect_to :edit
     end
+    redirect_to edit_user_path(@user)
   end
     
     
@@ -46,4 +46,10 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password,
                                  :password_confirmation)
   end
+  
+  def user_profile
+    params.require(:user).permit(:name, :email, :password,
+                                 :password_confirmation,
+                                 :age, :location)
+  end  
 end
