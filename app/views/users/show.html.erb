@@ -1,7 +1,23 @@
 <h1>
   <%= gravatar_for @user %>
-  <%= @user.name %>
-  <%= @user.email %>
-  <%= @user.age %>
-  <%= @user.location %>
-</h1>
+  <div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>email</th>
+        <th>age</th>
+        <th>location</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <td><%= @user.name %></td>
+          <td><%= @user.email %></td>
+          <td><%= @user.age %></td>
+          <td><%= @user.location %></td>
+      </tr>
+      <tr>
+    </tbody>
+  </table>
+</div>
